@@ -31,7 +31,7 @@ let amount = parseFloat(userInput);
 // Proceed if input is valid
 if (!isNaN(amount) && amount > 0) {
   estimateTransactionFee(amount);
-} else {
-  console.log("Tafadhali weka kiasi halali cha pesa."); // Please enter a valid amount
+} else if(!isNaN(amount) && amount < 0){
+  console.log("failure, eka pesa inamake sense."); // Please enter a valid amount
 }
 
