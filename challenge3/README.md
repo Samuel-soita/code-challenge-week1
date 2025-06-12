@@ -1,19 +1,15 @@
-# Boda Boda Ride Fare Estimator 
+# Mobile Money Transaction Fee Estimator
 
 ## Description
-A simple JavaScript program that estimates the fare for a boda boda ride based on the distance traveled.
+A simple JavaScript app that estimates transaction fees based on a 1.5% fee rule with set minimum (KES 10) and maximum (KES 70) limits.
 
- How to Use
-1. Open `index.html` in your browser.
-2. Enter the distance of your trip when prompted.
-3. Check the browser console for the fare breakdown and total.
+## How to Run
+1. Open the script in a browser environment.
+2. You will be prompted to enter an amount to send.
+3. The estimated fee and total cost will be shown in the console.
 
- Project Setup
-- Ensure `index.html` and `index.js` are in the same folder.
-- Open `index.html` in a web browser to run the app.
+## Author
+Dom
 
- Author
-Samuel Soita
-
- License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## License
+MIT License

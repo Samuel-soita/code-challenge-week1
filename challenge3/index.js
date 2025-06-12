@@ -1,32 +1,37 @@
-// Function to calculate fare based on input distance
-function calculateFare(distanceInput) {
-  // Convert input to a number
-  const distance = Number(distanceInput);
+// Function to estimate mobile money transaction fee
+function estimateTransactionFee(amountToSend) {
+  // Calculate 1.5% of the amount
+  let fee = amountToSend * 0.015;
 
-  // Validate input: must be a positive number
-  if (isNaN(distance) || distance <= 0) {
-    console.log("Enter a valid positive number.");
-    return;
+  // Apply minimum fee of 10
+  if (fee < 10) {
+    fee = 10;
+  }
+  // Apply maximum fee of 70
+  else if (fee > 70) {
+    fee = 70;
   }
 
-  // Fixed base fare amount
-  const base = 50;
-  // Charge per kilometer traveled
-  const rate = 15;
+  // Total amount to be deducted
+  let totalAmount = amountToSend + fee;
 
-  // Calculate cost for the distance traveled
-  const costForDistance = distance * rate;
-  // Total fare is base fare plus distance charge
-  const total = base + costForDistance;
-
-  // Output the details in console
-  console.log(`Distance: ${distance} km`);
-  console.log(`Base fare: KES ${base}`);
-  console.log(`Distance charge: KES ${costForDistance}`);
-  console.log(`Total fare: KES ${total}`);
-  console.log("Safe travels!");
+  // Print transaction details
+  console.log(`Sending KES ${amountToSend}:`);
+  console.log(`Calculated Transaction Fee: KES ${fee}`);
+  console.log(`Total amount to be debited: KES ${totalAmount}`);
+  console.log("\nSend Money Securely!");
 }
 
-// Prompt the user for distance and call the function
-const userInput = prompt("Enter trip distance in km:");
-calculateFare(userInput);
+// Prompt user to enter the amount
+let userInput = prompt("Unatuma Ngapi? (KES):");
+
+// Convert input to a number
+let amount = parseFloat(userInput);
+
+// Proceed if input is valid
+if (!isNaN(amount) && amount > 0) {
+  estimateTransactionFee(amount);
+} else {
+  console.log("Tafadhali weka kiasi halali cha pesa."); // Please enter a valid amount
+}
+
